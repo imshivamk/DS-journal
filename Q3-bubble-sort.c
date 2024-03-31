@@ -1,0 +1,55 @@
+#include<stdio.h>
+
+int array[20], n;
+
+void create()
+{
+    printf("Enter the size of the array:\n");
+    scanf("%d", &n);
+    printf("enter the elements:\n");
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+}
+
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void sort()
+{
+    int i,j, temp;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n-1-i;j++)
+        {
+            if(array[j]>array[j+1])
+            {
+                swap(&array[j], &array[j+1]);
+            }
+        }
+    }
+}
+
+void traversal()
+{
+    printf("The array elements are:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    create();
+    sort();
+    traversal();
+    return 0;
+}

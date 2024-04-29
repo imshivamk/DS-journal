@@ -5,20 +5,18 @@ int array[20], n;
 void sort()
 {
     int i, j, temp;
-    for(i=0;i<n-1;i++)
+    for(i=1;i<n;i++)
     {
-        for(j = i+1; j < n ; j++)
-        {
-            if(array[j] < array[i])
-            {
-                temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
-            }
-        }
+       temp = array[i];
+       for(j=i; j>0 && array[j-1]>temp; j--)
+       {
+            array[j] = array[j-1]; // move the element by one position
+       }
+       // after j--, where j reduces by one
+       array[j] = temp;
     }
-
 }
+
 
 
 void create()
